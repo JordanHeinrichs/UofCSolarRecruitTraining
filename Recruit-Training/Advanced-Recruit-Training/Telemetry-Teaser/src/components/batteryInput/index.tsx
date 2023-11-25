@@ -1,4 +1,15 @@
-const BatteryInput = () => {
+import React, {FC, InputHTMLAttributes} from "react";
+
+interface BatteryInputProps {
+  value: number; // Specify the type as 'number'
+  onChange: (newValue: number) => void; // Define the type for the 'onChange' callback
+}
+
+const BatteryInput: React.FC<BatteryInputProps> = ({ value, onChange }) => {
+  const handleBatteryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = parseFloat(e.target.value);
+    onChange(newValue);
+  }
   return (
     <div className="flex w-full flex-col items-center gap-2">
       <label>Battery Percentage (%):</label>
@@ -8,6 +19,9 @@ const BatteryInput = () => {
         name="battery"
         type="number"
         placeholder="Battery"
+        value={value} // Bind the input value to the prop value
+        onChange={handleBatteryChange} // Call the handler function on input change
+      
       />
     </div>
   );
