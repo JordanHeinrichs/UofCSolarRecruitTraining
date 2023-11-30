@@ -1,4 +1,9 @@
-const SpeedInput = () => {
+interface Props {
+  speed: number;
+  setSpeed: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const SpeedInput = (props: Props) => {
   return (
     <>
       <div className="flex w-full flex-col items-center gap-2">
@@ -9,6 +14,8 @@ const SpeedInput = () => {
           name="speed"
           type="number"
           placeholder="Speed"
+          value={props.speed}
+          onChange={(e) => props.setSpeed(parseInt(e.target.value))}
         />
       </div>
     </>
