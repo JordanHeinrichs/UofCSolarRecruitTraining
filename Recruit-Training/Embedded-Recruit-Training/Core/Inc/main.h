@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2022 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -28,7 +27,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
+#include "stm32l1xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -58,22 +57,30 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define PH0_OSC_IN_Pin GPIO_PIN_0
-#define PH0_OSC_IN_GPIO_Port GPIOH
-#define PH1_OSC_OUT_Pin GPIO_PIN_1
-#define PH1_OSC_OUT_GPIO_Port GPIOH
-#define LED_RED_Pin GPIO_PIN_5
-#define LED_RED_GPIO_Port GPIOA
-#define LED_GREEN_Pin GPIO_PIN_6
-#define LED_GREEN_GPIO_Port GPIOA
-#define SWDIO_Pin GPIO_PIN_13
-#define SWDIO_GPIO_Port GPIOA
-#define SWCLK_Pin GPIO_PIN_14
-#define SWCLK_GPIO_Port GPIOA
-#define SWO_Pin GPIO_PIN_3
-#define SWO_GPIO_Port GPIOB
-/* USER CODE BEGIN Private defines */
+#define SPI1_CS_Pin GPIO_PIN_4
+#define SPI1_CS_GPIO_Port GPIOA
+#define CANINT_Pin GPIO_PIN_4
+#define CANINT_GPIO_Port GPIOC
+#define CAN_RX0BF_Pin GPIO_PIN_5
+#define CAN_RX0BF_GPIO_Port GPIOC
+#define CAN_RX0BF_EXTI_IRQn EXTI9_5_IRQn
+#define CAN_RX1BF_Pin GPIO_PIN_0
+#define CAN_RX1BF_GPIO_Port GPIOB
+#define GND_Pin GPIO_PIN_12
+#define GND_GPIO_Port GPIOB
+#define VDD_Pin GPIO_PIN_13
+#define VDD_GPIO_Port GPIOB
+#define BLUE_SWITCH_Pin GPIO_PIN_8
+#define BLUE_SWITCH_GPIO_Port GPIOC
+#define GREEN_SWITCH_Pin GPIO_PIN_9
+#define GREEN_SWITCH_GPIO_Port GPIOC
+#define LED_BLUE_Pin GPIO_PIN_10
+#define LED_BLUE_GPIO_Port GPIOC
+#define LED_RED_Pin GPIO_PIN_12
+#define LED_RED_GPIO_Port GPIOC
 
+/* USER CODE BEGIN Private defines */
+static const unsigned int TASK_QUEUE_TIMEOUT = 0; // 0ms
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
@@ -81,5 +88,3 @@ void Error_Handler(void);
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
