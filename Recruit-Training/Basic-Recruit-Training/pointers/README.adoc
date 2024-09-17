@@ -12,7 +12,7 @@ p = &x;
 
 cout << x << endl; //this prints the number 6
 ----
-
+cd
 First lets look at a pointer variable:
 
 ----
